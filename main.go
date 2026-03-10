@@ -49,7 +49,7 @@ func main() {
 			http.Error(w, "Error reading file", http.StatusInternalServerError)
 			return
 		}
-		w.Write(data)
+	w.Write([]byte(html.EscapeString(string(data))))
 	})
 
 	// Gosec G204: Subprocess launched with variable
